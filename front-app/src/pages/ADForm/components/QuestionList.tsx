@@ -1,11 +1,6 @@
 import React, { memo } from "react";
 import { QuestionListItem } from "./QuestionListItem";
 import { Question } from "../../../modules/questions/interfaces";
-import styled from "styled-components";
-
-const Container = styled.div`
-  margin: 10px;
-`;
 
 interface Props {
   questions: Question[];
@@ -14,7 +9,7 @@ interface Props {
 }
 
 const QuestionListComponent = (props: Props) => (
-  <Container>
+  <div>
     {props.questions.map((question, index) => (
       <QuestionListItem
         key={question.id}
@@ -24,7 +19,7 @@ const QuestionListComponent = (props: Props) => (
         value={props.answers[question.id]}
       />
     ))}
-  </Container>
+  </div>
 );
 
 export const QuestionList = memo(QuestionListComponent);

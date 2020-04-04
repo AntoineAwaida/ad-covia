@@ -17,6 +17,7 @@ const QuestionListContainer = styled.div`
   border: 2px solid white;
   border-radius: 20px;
   margin-right: 15px;
+  padding: 10px;
 `;
 
 const ListTitle = styled.h3`
