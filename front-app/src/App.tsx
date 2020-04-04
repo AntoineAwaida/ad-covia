@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { isMobileOnly } from "react-device-detect";
 import { Landing } from "./pages/Landing";
 import { Switch, Route, Link } from "react-router-dom";
+import { ADForm } from "./pages/ADForm";
 
 const Container = styled.div`
   display: flex;
@@ -20,8 +21,6 @@ const Title = styled.h1`
   text-align: center;
   color: white;
 `;
-
-const ADForm = () => <Title>Questionnaire en construction</Title>;
 
 const App = () => {
   const shouldDisplayMobileVersion = isMobileOnly;
