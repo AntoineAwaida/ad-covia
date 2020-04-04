@@ -1,6 +1,5 @@
 import { useFormik } from "formik";
 import { Question } from "../../modules/questions/interfaces";
-import { mockQuestions } from "../../modules/questions/mocks";
 import { useState } from "react";
 
 const generateInitialValues = (questions: Question[]) => {
@@ -11,16 +10,31 @@ const generateInitialValues = (questions: Question[]) => {
   return initialValues;
 };
 
-export const useADForm = () => {
+export const useADForm = (questions: Question[]) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
 
+  const goToNextQuestion = () => {
+    setCurrentQuestionIndex((currentState) =>
+      Math.min(currentState + 1, questions.length - 1)
+    );
+  };
+
+  const goToPreviousQuestion = () => {
+    setCurrentQuestionIndex((currentState) => Math.max(currentState - 1, 0));
+  };
+
   const formik = useFormik({
-    initialValues: generateInitialValues(mockQuestions),
+    initialValues: generateInitialValues(questions),
     onSubmit: (values) => {
       console.warn(JSON.stringify(values));
       alert("SUBMITTED FORM, CHECK LOG TO SEE VALUES");
     },
   });
 
-  return { formik, currentQuestionIndex };
+  return {
+    formik,
+    currentQuestionIndex,
+    goToPreviousQuestion,
+    goToNextQuestion,
+  };
 };
