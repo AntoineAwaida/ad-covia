@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -28,9 +29,11 @@ export const Landing = () => (
   <Container>
     <WelcomeText>Site en construction</WelcomeText>
     <ButtonContainer>
-      <Button variant="contained" color="primary">
-        Aller au formulaire
-      </Button>
+      <Link to="/form">
+        <Button variant="contained" color="primary">
+          Aller au formulaire
+        </Button>
+      </Link>
     </ButtonContainer>
   </Container>
 );
