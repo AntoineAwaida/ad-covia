@@ -1,9 +1,12 @@
 import React from "react";
-import { Question } from "../../../modules/questions/interfaces";
+import { Question, AnswerType } from "../../../modules/questions/interfaces";
 import styled from "styled-components";
+import { YNUAnswerFields } from "./AnswerFields/YNUAnswerFields";
 
 const Container = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
 const QuestionTitle = styled.h3`
@@ -19,6 +22,21 @@ const QuestionText = styled.h4`
   padding-bottom: 10px;
 `;
 
+const AsnwersContainer = styled.div`
+  flex: 1;
+  display: flex;
+  padding: 30px;
+`;
+
+const generateAnswerFields = (answer: AnswerType, formik: any) => {
+  switch (answer.type) {
+    case "YES_NO_UNSURE":
+      return <YNUAnswerFields formik={formik} />;
+    default:
+      return <p>test</p>;
+  }
+};
+
 interface Props {
   question: Question;
   formik: any;
@@ -29,6 +47,9 @@ export const Form = (props: Props) => {
     <Container>
       <QuestionTitle>{props.question.shortText}</QuestionTitle>
       <QuestionText>{props.question.text}</QuestionText>
+      <AsnwersContainer>
+        {generateAnswerFields(props.question.answer, props.formik)}
+      </AsnwersContainer>
     </Container>
   );
 };
