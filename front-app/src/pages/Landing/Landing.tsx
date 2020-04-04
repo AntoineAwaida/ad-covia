@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "@material-ui/core/Button";
 
 const Container = styled.div`
+  display: flex;
   flex: 1;
+  flex-direction: column;
+  align-items: center;
   margin: 50px;
   background-color: gray;
   border: 2px solid white;
@@ -14,6 +18,8 @@ const WelcomeText = styled.h3`
 `;
 
 const ButtonContainer = styled.div`
+  display: flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
 `;
@@ -21,6 +27,10 @@ const ButtonContainer = styled.div`
 export const Landing = () => (
   <Container>
     <WelcomeText>Site en construction</WelcomeText>
-    <ButtonContainer>{/* Button will go here */}</ButtonContainer>
+    <ButtonContainer>
+      <Button variant="contained" color="primary">
+        Aller au formulaire
+      </Button>
+    </ButtonContainer>
   </Container>
 );
