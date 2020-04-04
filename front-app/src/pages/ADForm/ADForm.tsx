@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import styled from "styled-components";
 import { QuestionList } from "./components/QuestionList";
 import { mockQuestions } from "../../modules/questions/mocks";
+import { useADForm } from "./useADForm";
 
 const MainContainer = styled.div`
   display: flex;
@@ -32,17 +33,23 @@ const FormContainer = styled.div`
   border-radius: 15px;
 `;
 
-const ADFormComponent = () => (
-  <MainContainer>
-    <QuestionListContainer>
-      <ListTitle>Questions</ListTitle>
-      <QuestionList
-        questions={mockQuestions}
-        answers={{ fievre: "OUI", anosmie: "" }}
-      />
-    </QuestionListContainer>
-    <FormContainer />
-  </MainContainer>
-);
+const ADFormComponent = () => {
+  const { formik, currentQuestionIndex } = useADForm();
+
+  return (
+    <MainContainer>
+      <QuestionListContainer>
+        <ListTitle>Questions</ListTitle>
+        <QuestionList
+          questions={mockQuestions}
+          answers={formik.values}
+          currentQuestionIndex={currentQuestionIndex}
+          // errors={formik.errors} TBD WHEN WE'LL MANAGE ERRORS
+        />
+      </QuestionListContainer>
+      <FormContainer />
+    </MainContainer>
+  );
+};
 
 export const ADForm = memo(ADFormComponent);

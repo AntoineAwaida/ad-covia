@@ -10,6 +10,7 @@ const Container = styled.div`
 interface Props {
   questions: Question[];
   answers: { [id: string]: string };
+  currentQuestionIndex: number;
 }
 
 const QuestionListComponent = (props: Props) => (
@@ -18,6 +19,7 @@ const QuestionListComponent = (props: Props) => (
       <QuestionListItem
         key={question.id}
         count={index}
+        active={props.currentQuestionIndex === index}
         text={question.shortText}
         value={props.answers[question.id]}
       />
