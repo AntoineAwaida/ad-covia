@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { isMobileOnly } from "react-device-detect";
 import { Landing } from "./pages/Landing";
+import { Switch, Route, Link } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -20,19 +21,31 @@ const Title = styled.h1`
   color: white;
 `;
 
+const ADForm = () => <Title>Questionnaire en construction</Title>;
+
 const App = () => {
   const shouldDisplayMobileVersion = isMobileOnly;
 
   return (
     <Container>
       <HeaderContainer>
-        <Title>{"AD COVIA"}</Title>
+        <Title>
+          <Link to="/">{"AD COVIA"}</Link>
+        </Title>
       </HeaderContainer>
-      {shouldDisplayMobileVersion ? (
-        <p>{"Pas disponible sur mobile"}</p>
-      ) : (
-        <Landing />
-      )}
+      <Switch>
+        <Route path="/form" render={() => <ADForm />} />
+        <Route
+          path="/"
+          render={() =>
+            shouldDisplayMobileVersion ? (
+              <p>{"Pas disponible sur mobile"}</p>
+            ) : (
+              <Landing />
+            )
+          }
+        />
+      </Switch>
     </Container>
   );
 };
