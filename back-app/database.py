@@ -8,7 +8,7 @@ import pymysql
 
 pymysql.install_as_MySQLdb()
 engine = create_engine(
-    'mysql://antoine:r@phael8600A@51.178.40.21:3306/test', convert_unicode=True)
+    'mysql://antoine:monmdp@localhost:3306/ia', convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
