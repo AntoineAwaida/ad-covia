@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { isMobileOnly } from "react-device-detect";
 
 const Container = styled.div`
   text-align: center;
@@ -16,12 +17,20 @@ const HeaderContainer = styled.header`
   color: white;
 `;
 
-const App = () => (
-  <Container>
-    <HeaderContainer>
-      <p>En construction</p>
-    </HeaderContainer>
-  </Container>
-);
+const App = () => {
+  const shouldDisplayMobileVersion = isMobileOnly;
+
+  return (
+    <Container>
+      <HeaderContainer>
+        <p>
+          {shouldDisplayMobileVersion
+            ? "Je suis sur mobile"
+            : "Je suis pas sur mobile"}
+        </p>
+      </HeaderContainer>
+    </Container>
+  );
+};
 
 export default App;
