@@ -1,3 +1,7 @@
 __pycache__
 venv
 .vscode
+resources/
+*.pyc
+.DS_Store
+.mypy_cache
