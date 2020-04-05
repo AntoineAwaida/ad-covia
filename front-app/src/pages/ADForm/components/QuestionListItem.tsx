@@ -14,7 +14,7 @@ interface Props {
 
 const QuestionListItemComponent = (props: Props) => (
   <Text active={props.active}>
-    {props.count + 1 + ". " + props.text} {props.value !== null ? "OK" : "KO"}
+    {props.count + 1 + ". " + props.text} {props.value !== "" ? "OK" : "KO"}
   </Text>
 );
 
