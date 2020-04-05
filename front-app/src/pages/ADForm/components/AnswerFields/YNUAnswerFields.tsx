@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { AnswerValueType } from "../../../../modules/questions/interfaces";
 import { AnswerButton } from "./AnswerButton";
 
 const Container = styled.div`
@@ -12,7 +11,7 @@ const Container = styled.div`
 `;
 
 interface Props {
-  value: AnswerValueType;
+  value: string;
 }
 
 export const YNUAnswerFields = (props: Props) => (

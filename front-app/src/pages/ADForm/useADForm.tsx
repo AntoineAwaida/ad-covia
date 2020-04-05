@@ -1,11 +1,11 @@
 import { useFormik } from "formik";
-import { Question, AnswerValueType } from "../../modules/questions/interfaces";
+import { Question } from "../../modules/questions/interfaces";
 import { useState } from "react";
 
 const generateInitialValues = (questions: Question[]) => {
-  const initialValues: { [id: string]: AnswerValueType } = {};
+  const initialValues: { [id: string]: string } = {};
 
-  questions.forEach((question) => (initialValues[question.id] = null));
+  questions.forEach((question) => (initialValues[question.id] = ""));
 
   return initialValues;
 };
