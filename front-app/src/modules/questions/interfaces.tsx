@@ -10,3 +10,5 @@ export interface Question {
   text: string;
   answer: AnswerType;
 }
+
+export type AnswerValueType = string | number | boolean | null;
