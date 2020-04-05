@@ -70,7 +70,11 @@ const ADFormComponent = () => {
       <FormContainer>
         <Form question={mockQuestions[currentQuestionIndex]} formik={formik} />
         <DirectionButtonsContainer>
-          <Button variant="contained" onClick={goToPreviousQuestion}>
+          <Button
+            variant="contained"
+            onClick={goToPreviousQuestion}
+            disabled={currentQuestionIndex === 0}
+          >
             Précédent
           </Button>
           <Button variant="contained" onClick={goToNextQuestion}>
