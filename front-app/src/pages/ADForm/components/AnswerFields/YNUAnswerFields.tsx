@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { AnswerButton } from "./AnswerButton";
+import { AnswerButton } from "../../../../components/AnswerButton";
 
 const Container = styled.div`
   flex: 1;
