@@ -8,9 +8,39 @@ export const mockQuestions: Question[] = [
     answer: { type: "YES_NO_UNSURE" },
   },
   {
+    id: "toux",
+    shortText: "Toux",
+    text: "Avez-vous un toux sèche?",
+    answer: { type: "YES_NO" },
+  },
+  {
+    id: "fatigue",
+    shortText: "Fatigue",
+    text: "Vous sentez-vous fatigués plus que d'habitude?",
+    answer: { type: "YES_NO" },
+  },
+  {
+    id: "diff_resp",
+    shortText: "Difficultés respiratoires",
+    text: "Avez-vous plus de mal à respirer que d'habitude?",
+    answer: { type: "YES_NO" },
+  },
+  {
+    id: "diarrhee",
+    shortText: "Diarrhée",
+    text: "Avez-vous une diarrhée?",
+    answer: { type: "YES_NO" },
+  },
+  {
     id: "anosmie",
     shortText: "Anosmie",
     text: "Avez-vous une perte de l'odorat?",
+    answer: { type: "YES_NO" },
+  },
+  {
+    id: "agueusie",
+    shortText: "Agueusie",
+    text: "Avez-vous une perte du goût?",
     answer: { type: "YES_NO" },
   },
 ];

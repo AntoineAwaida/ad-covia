@@ -4,7 +4,7 @@ import { QuestionList } from "./components/QuestionList";
 import { mockQuestions } from "../../modules/questions/mocks";
 import { useADForm } from "./useADForm";
 import { Form } from "./components/Form";
-import Button from "@material-ui/core/Button";
+import { Button } from "@material-ui/core";
 
 const MainContainer = styled.div`
   display: flex;
