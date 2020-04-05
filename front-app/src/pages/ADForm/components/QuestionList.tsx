@@ -1,10 +1,13 @@
 import React, { memo } from "react";
 import { QuestionListItem } from "./QuestionListItem";
-import { Question } from "../../../modules/questions/interfaces";
+import {
+  Question,
+  AnswerValueType,
+} from "../../../modules/questions/interfaces";
 
 interface Props {
   questions: Question[];
-  answers: { [id: string]: string };
+  answers: { [id: string]: AnswerValueType };
   currentQuestionIndex: number;
 }
 

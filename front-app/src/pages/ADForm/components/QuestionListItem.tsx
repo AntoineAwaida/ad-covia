@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import styled from "styled-components";
+import { AnswerValueType } from "../../../modules/questions/interfaces";
 
 const Text = styled.h5<{ active: boolean }>`
   color: ${(props) => (props.active ? "white" : "lightgray")};
@@ -7,14 +8,14 @@ const Text = styled.h5<{ active: boolean }>`
 
 interface Props {
   text: string;
-  value: string;
+  value: AnswerValueType;
   count: number;
   active: boolean;
 }
 
 const QuestionListItemComponent = (props: Props) => (
   <Text active={props.active}>
-    {props.count + 1 + ". " + props.text} {props.value !== "" ? "OK" : "KO"}
+    {props.count + 1 + ". " + props.text} {props.value !== null ? "OK" : "KO"}
   </Text>
 );
 
