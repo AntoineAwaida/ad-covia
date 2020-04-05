@@ -5,3 +5,4 @@ resources/
 *.pyc
 .DS_Store
 .mypy_cache
+*.egg-info
