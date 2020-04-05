@@ -2,6 +2,7 @@ import React from "react";
 import { Question, AnswerType } from "../../../modules/questions/interfaces";
 import styled from "styled-components";
 import { YNUAnswerFields } from "./AnswerFields/YNUAnswerFields";
+import { YNAnswerFields } from "./AnswerFields/YNAnswerFields";
 
 const Container = styled.div`
   flex: 1;
@@ -32,6 +33,8 @@ const generateAnswerFields = (answer: AnswerType, formik: any) => {
   switch (answer.type) {
     case "YES_NO_UNSURE":
       return <YNUAnswerFields formik={formik} />;
+    case "YES_NO":
+      return <YNAnswerFields formik={formik} />;
     default:
       return <p>test</p>;
   }

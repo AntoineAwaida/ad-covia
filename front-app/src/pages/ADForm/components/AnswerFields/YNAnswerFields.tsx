@@ -5,9 +5,9 @@ import { Button } from "@material-ui/core";
 const Container = styled.div`
   flex: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
 `;
 
 const StyledButton = styled(Button)`
@@ -18,16 +18,13 @@ interface Props {
   formik: any;
 }
 
-export const YNUAnswerFields = (props: Props) => (
+export const YNAnswerFields = (props: Props) => (
   <Container>
     <StyledButton variant="contained" color="primary">
       OUI
     </StyledButton>
     <StyledButton variant="contained" color="primary">
       NON
-    </StyledButton>
-    <StyledButton variant="contained" color="primary">
-      NE SAIT PAS
     </StyledButton>
   </Container>
 );
