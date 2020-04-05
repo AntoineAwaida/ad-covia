@@ -1,4 +1,4 @@
-type SimpleAnswerType = "YES_NO_UNSURE" | "NUMBER" | "STRING";
+type SimpleAnswerType = "YES_NO" | "YES_NO_UNSURE" | "NUMBER" | "STRING";
 
 export type AnswerType =
   | { type: SimpleAnswerType }

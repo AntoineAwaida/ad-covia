@@ -11,6 +11,6 @@ export const mockQuestions: Question[] = [
     id: "anosmie",
     shortText: "Anosmie",
     text: "Avez-vous une perte de l'odorat?",
-    answer: { type: "YES_NO_UNSURE" },
+    answer: { type: "YES_NO" },
   },
 ];
