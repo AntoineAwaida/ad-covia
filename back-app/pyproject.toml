@@ -14,14 +14,15 @@ opencv-python = "^4.2"
 scikit-learn = "^0.22.2"
 jupyter = "^1.0"
 notebook = "^6.0"
+mypy = "^0.770.0"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^18.3-alpha.0",allows-prereleases = true}
 flake8 = "^3.7"
 
+[tool.black]
+line-length = 79
+
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
-
-[tool.black]
-line-length = 80
