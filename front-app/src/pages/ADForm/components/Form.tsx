@@ -3,6 +3,7 @@ import { Question, AnswerType } from "../../../modules/questions/interfaces";
 import styled from "styled-components";
 import { YNUAnswerFields } from "./AnswerFields/YNUAnswerFields";
 import { YNAnswerFields } from "./AnswerFields/YNAnswerFields";
+import { InputAnswerFields } from "./AnswerFields/InputAnswerFields";
 
 const Container = styled.div`
   flex: 1;
@@ -49,6 +50,15 @@ const generateAnswerFields = (
         <YNAnswerFields
           formikValue={value}
           questionId={questionId}
+          setFieldValue={setFieldValue}
+        />
+      );
+    case "NUMBER":
+    case "STRING":
+      return (
+        <InputAnswerFields
+          questionId={questionId}
+          formikValue={value}
           setFieldValue={setFieldValue}
         />
       );

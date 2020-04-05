@@ -43,4 +43,17 @@ export const mockQuestions: Question[] = [
     text: "Avez-vous une perte du goût?",
     answer: { type: "YES_NO" },
   },
+  {
+    id: "group_sang",
+    shortText: "Groupe Sanguin",
+    text: "Quel est votre groupe sanguin?",
+    answer: { type: "STRING" },
+  },
+  {
+    id: "contacts_cov",
+    shortText: "Contacts contaminés",
+    text:
+      "Combien de personnes contaminées avez-vous rencontrés ces derniers 14 jours?",
+    answer: { type: "NUMBER" },
+  },
 ];
