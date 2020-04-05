@@ -11,13 +11,33 @@ const Container = styled.div`
 `;
 
 interface Props {
-  value: string;
+  questionId: string;
+  formikValue: string;
+  setFieldValue: (field: string, value: string) => void;
 }
 
 export const YNUAnswerFields = (props: Props) => (
   <Container>
-    <AnswerButton text={"OUI"} checked={props.value === "YES"} />
-    <AnswerButton text={"NON"} checked={props.value === "NO"} />
-    <AnswerButton text={"NE SAIT PAS"} checked={props.value === "UNSURE"} />
+    <AnswerButton
+      text={"OUI"}
+      id={props.questionId}
+      value={"yes"}
+      checked={props.formikValue === "yes"}
+      onClick={() => props.setFieldValue(props.questionId, "yes")}
+    />
+    <AnswerButton
+      text={"NON"}
+      id={props.questionId}
+      value={"no"}
+      checked={props.formikValue === "no"}
+      onClick={() => props.setFieldValue(props.questionId, "no")}
+    />
+    <AnswerButton
+      text={"NE SAIT PAS"}
+      id={props.questionId}
+      value={"unsure"}
+      checked={props.formikValue === "unsure"}
+      onClick={() => props.setFieldValue(props.questionId, "unsure")}
+    />
   </Container>
 );

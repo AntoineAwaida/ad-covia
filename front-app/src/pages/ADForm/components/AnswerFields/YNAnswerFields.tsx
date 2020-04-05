@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { AnswerButton } from "./AnswerButton";
-import { AnswerValueType } from "../../../../modules/questions/interfaces";
 
 const Container = styled.div`
   flex: 1;
@@ -12,12 +11,26 @@ const Container = styled.div`
 `;
 
 interface Props {
-  value: AnswerValueType;
+  questionId: string;
+  formikValue: string;
+  setFieldValue: (field: string, value: string) => void;
 }
 
 export const YNAnswerFields = (props: Props) => (
   <Container>
-    <AnswerButton text={"OUI"} checked={props.value === true} />
-    <AnswerButton text={"NON"} checked={!props.value === false} />
+    <AnswerButton
+      text={"OUI"}
+      value={"yes"}
+      id={props.questionId}
+      checked={props.formikValue === "yes"}
+      onClick={() => props.setFieldValue(props.questionId, "yes")}
+    />
+    <AnswerButton
+      text={"NON"}
+      value={"no"}
+      id={props.questionId}
+      checked={props.formikValue === "no"}
+      onClick={() => props.setFieldValue(props.questionId, "no")}
+    />
   </Container>
 );
