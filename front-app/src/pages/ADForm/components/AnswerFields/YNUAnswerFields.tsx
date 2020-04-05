@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from "@material-ui/core";
+import { AnswerValueType } from "../../../../modules/questions/interfaces";
+import { AnswerButton } from "./AnswerButton";
 
 const Container = styled.div`
   flex: 1;
@@ -10,24 +11,14 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-const StyledButton = styled(Button)`
-  width: 150px;
-`;
-
 interface Props {
-  formik: any;
+  value: AnswerValueType;
 }
 
 export const YNUAnswerFields = (props: Props) => (
   <Container>
-    <StyledButton variant="contained" color="primary">
-      OUI
-    </StyledButton>
-    <StyledButton variant="contained" color="primary">
-      NON
-    </StyledButton>
-    <StyledButton variant="contained" color="primary">
-      NE SAIT PAS
-    </StyledButton>
+    <AnswerButton text={"OUI"} checked={props.value === "YES"} />
+    <AnswerButton text={"NON"} checked={props.value === "NO"} />
+    <AnswerButton text={"NE SAIT PAS"} checked={props.value === "UNSURE"} />
   </Container>
 );

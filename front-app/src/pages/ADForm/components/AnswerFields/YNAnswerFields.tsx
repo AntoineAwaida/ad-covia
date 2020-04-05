@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from "@material-ui/core";
+import { AnswerButton } from "./AnswerButton";
+import { AnswerValueType } from "../../../../modules/questions/interfaces";
 
 const Container = styled.div`
   flex: 1;
@@ -10,21 +11,13 @@ const Container = styled.div`
   flex-direction: row;
 `;
 
-const StyledButton = styled(Button)`
-  width: 150px;
-`;
-
 interface Props {
-  formik: any;
+  value: AnswerValueType;
 }
 
 export const YNAnswerFields = (props: Props) => (
   <Container>
-    <StyledButton variant="contained" color="primary">
-      OUI
-    </StyledButton>
-    <StyledButton variant="contained" color="primary">
-      NON
-    </StyledButton>
+    <AnswerButton text={"OUI"} checked={props.value === true} />
+    <AnswerButton text={"NON"} checked={!props.value === false} />
   </Container>
 );

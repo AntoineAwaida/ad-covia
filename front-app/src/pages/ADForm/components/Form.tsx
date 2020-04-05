@@ -1,5 +1,9 @@
 import React from "react";
-import { Question, AnswerType } from "../../../modules/questions/interfaces";
+import {
+  Question,
+  AnswerType,
+  AnswerValueType,
+} from "../../../modules/questions/interfaces";
 import styled from "styled-components";
 import { YNUAnswerFields } from "./AnswerFields/YNUAnswerFields";
 import { YNAnswerFields } from "./AnswerFields/YNAnswerFields";
@@ -29,12 +33,12 @@ const AsnwersContainer = styled.div`
   padding: 30px;
 `;
 
-const generateAnswerFields = (answer: AnswerType, formik: any) => {
+const generateAnswerFields = (answer: AnswerType, value: AnswerValueType) => {
   switch (answer.type) {
     case "YES_NO_UNSURE":
-      return <YNUAnswerFields formik={formik} />;
+      return <YNUAnswerFields value={value} />;
     case "YES_NO":
-      return <YNAnswerFields formik={formik} />;
+      return <YNAnswerFields value={value} />;
     default:
       return <p>test</p>;
   }
@@ -51,7 +55,10 @@ export const Form = (props: Props) => {
       <QuestionTitle>{props.question.shortText}</QuestionTitle>
       <QuestionText>{props.question.text}</QuestionText>
       <AsnwersContainer>
-        {generateAnswerFields(props.question.answer, props.formik)}
+        {generateAnswerFields(
+          props.question.answer,
+          props.formik.values[props.question.id]
+        )}
       </AsnwersContainer>
     </Container>
   );
