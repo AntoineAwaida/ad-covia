@@ -3,10 +3,12 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import pymysql
 
+import dbstring from db
+
 
 pymysql.install_as_MySQLdb()
 engine = create_engine(
-    "mysql://admin:p@lp@R5abp@localhost:3306/bdd", convert_unicode=True
+    dbstring, convert_unicode=True
 )
 db_session = scoped_session(
     sessionmaker(autocommit=False, autoflush=False, bind=engine)
