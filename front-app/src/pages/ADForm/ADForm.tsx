@@ -77,9 +77,15 @@ const ADFormComponent = () => {
           >
             Précédent
           </Button>
-          <Button variant="contained" onClick={goToNextQuestion}>
-            Suivant
-          </Button>
+          {currentQuestionIndex < mockQuestions.length - 1 ? (
+            <Button variant="contained" onClick={goToNextQuestion}>
+              Suivant
+            </Button>
+          ) : (
+            <Button variant="contained" onClick={() => formik.handleSubmit()}>
+              Envoyer
+            </Button>
+          )}
         </DirectionButtonsContainer>
       </FormContainer>
     </MainContainer>
