@@ -3,7 +3,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import pymysql
 
-import dbstring from db
+from db import dbstring
 
 
 pymysql.install_as_MySQLdb()
@@ -22,14 +22,18 @@ def init_db():
     # they will be registered properly on the metadata.  Otherwise
     # you will have to import them first before calling init_db()
 
+    import entities.form
     Base.metadata.create_all(bind=engine)
 
+def get_files_with_filename(filename):
+    from entities.form import Form
+    result = Form.query.filter(Form.filename == filename).first()
+    return False if result==None else True
 
-def add_user(user):
-    from user import User
+def add_form(form,filename):
+    from entities.form import Form
 
-    print(user)
-    u = User(user)
-    print(u)
-    db_session.add(u)
+   
+    f = Form(form,filename)
+    db_session.add(f)
     db_session.commit()
