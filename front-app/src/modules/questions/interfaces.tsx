@@ -1,4 +1,9 @@
-type SimpleAnswerType = "YES_NO" | "YES_NO_UNSURE" | "NUMBER" | "STRING";
+type SimpleAnswerType =
+  | "YES_NO"
+  | "YES_NO_UNSURE"
+  | "NUMBER"
+  | "STRING"
+  | "USER_HASK_KEY";
 
 export type AnswerType =
   | { type: SimpleAnswerType }
