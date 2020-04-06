@@ -3,6 +3,8 @@ import { Question, AnswerType } from "../../../modules/questions/interfaces";
 import styled from "styled-components";
 import { YNUAnswerFields } from "./AnswerFields/YNUAnswerFields";
 import { YNAnswerFields } from "./AnswerFields/YNAnswerFields";
+import { InputAnswerFields } from "./AnswerFields/InputAnswerFields";
+import { UserHashAnswerFields } from "./AnswerFields/UserHashAnswerFields";
 
 const Container = styled.div`
   flex: 1;
@@ -52,8 +54,25 @@ const generateAnswerFields = (
           setFieldValue={setFieldValue}
         />
       );
+    case "NUMBER":
+    case "STRING":
+      return (
+        <InputAnswerFields
+          questionId={questionId}
+          formikValue={value}
+          setFieldValue={setFieldValue}
+        />
+      );
+    case "USER_HASK_KEY":
+      return (
+        <UserHashAnswerFields
+          questionId={questionId}
+          formikValue={value}
+          setFieldValue={setFieldValue}
+        />
+      );
     default:
-      return <p>test</p>;
+      return <p>Erreur</p>;
   }
 };
 

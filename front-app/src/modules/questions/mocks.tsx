@@ -1,4 +1,5 @@
 import { Question } from "./interfaces";
+import { userHashKeyId } from "./constants";
 
 export const mockQuestions: Question[] = [
   {
@@ -42,5 +43,25 @@ export const mockQuestions: Question[] = [
     shortText: "Agueusie",
     text: "Avez-vous une perte du goût?",
     answer: { type: "YES_NO" },
+  },
+  {
+    id: "group_sang",
+    shortText: "Groupe Sanguin",
+    text: "Quel est votre groupe sanguin?",
+    answer: { type: "STRING" },
+  },
+  {
+    id: "contacts_cov",
+    shortText: "Contacts contaminés",
+    text:
+      "Combien de personnes contaminées avez-vous rencontrés ces derniers 14 jours?",
+    answer: { type: "NUMBER" },
+  },
+  {
+    id: userHashKeyId,
+    shortText: "Identification",
+    text:
+      "Nous allons générer un identifiant chiffré pour enregistrer votre résultat. Pour le générer, nous avons besoin de votre nom, prénom et âge. Rassurez-vous, nous ne les enregistrons pas",
+    answer: { type: "USER_HASK_KEY" },
   },
 ];
