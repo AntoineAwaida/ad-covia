@@ -12,8 +12,8 @@ if __name__ == "__main__":
     matcher = TemplateMatcher(template, ((0.044, 0.28), (0.07, 0.72)))
 
     img = Image.from_file(path)
-    matcher.match(img)
-
+    matched = matcher.match(img)
+    matched.show()
     coords = {
         "voyage hors de france": ((0.2, 0.56), (0.24, 0.7)),
         "tickboxes1": ((0.365, 0.785), (0.643, 0.885)),
