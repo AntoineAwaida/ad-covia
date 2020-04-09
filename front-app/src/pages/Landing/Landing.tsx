@@ -53,7 +53,12 @@ export const Landing = () => {
   return (
     <Container>
       <WelcomeText>Site en construction</WelcomeText>
-      <WelcomeText>{"API Status : " + apiStatus}</WelcomeText>
+      <WelcomeText>
+        {"API Status : " +
+          apiStatus +
+          " | Questions chargées : " +
+          questions.length}
+      </WelcomeText>
       <BottomContentContainer>
         {generateBottomContent(apiStatus)}
       </BottomContentContainer>

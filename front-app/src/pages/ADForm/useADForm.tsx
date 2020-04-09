@@ -2,6 +2,8 @@ import { useFormik } from "formik";
 import { Question } from "../../modules/questions/interfaces";
 import { useState } from "react";
 import { userHashKeyId } from "../../modules/questions/constants";
+import { useSelector } from "react-redux";
+import { questionsSelector } from "../../store/selectors";
 
 const generateInitialValues = (questions: Question[]) => {
   const initialValues: { [id: string]: string } = {};
@@ -13,7 +15,9 @@ const generateInitialValues = (questions: Question[]) => {
   return initialValues;
 };
 
-export const useADForm = (questions: Question[]) => {
+export const useADForm = () => {
+  const questions = useSelector(questionsSelector);
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
 
   const goToNextQuestion = () => {
@@ -36,6 +40,7 @@ export const useADForm = (questions: Question[]) => {
 
   return {
     formik,
+    questions,
     currentQuestionIndex,
     goToPreviousQuestion,
     goToNextQuestion,
