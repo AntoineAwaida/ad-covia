@@ -6,6 +6,7 @@ from flask_cors import CORS, cross_origin
 
 from database import add_form, db_session, get_files_with_filename, init_db
 
+from routes.get_questions import questionsJSON
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
@@ -43,6 +44,9 @@ def status():
     response = jsonify({"status": True})
     return response
 
+@app.route("/questions", methods=["GET"])
+def questions():
+    return jsonify(questionsJSON)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=3000, debug=True, threaded=True)

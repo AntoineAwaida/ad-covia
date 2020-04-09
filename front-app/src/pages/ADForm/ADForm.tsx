@@ -5,6 +5,7 @@ import { mockQuestions } from "../../modules/questions/mocks";
 import { useADForm } from "./useADForm";
 import { Form } from "./components/Form";
 import { Button } from "@material-ui/core";
+import { Question } from "../../modules/questions/interfaces";
 
 const MainContainer = styled.div`
   display: flex;
@@ -51,24 +52,33 @@ const DirectionButtonsContainer = styled.div`
 const ADFormComponent = () => {
   const {
     formik,
+    questions,
     currentQuestionIndex,
     goToPreviousQuestion,
     goToNextQuestion,
-  } = useADForm(mockQuestions);
+  } = useADForm();
+
+  if (questions.length === 0) {
+    return (
+      <MainContainer>
+        <p>Une erreur est survenue</p>
+      </MainContainer>
+    );
+  }
 
   return (
     <MainContainer>
       <QuestionListContainer>
         <ListTitle>Questions</ListTitle>
         <QuestionList
-          questions={mockQuestions}
+          questions={questions}
           answers={formik.values}
           currentQuestionIndex={currentQuestionIndex}
           // errors={formik.errors} TBD WHEN WE'LL MANAGE ERRORS
         />
       </QuestionListContainer>
       <FormContainer>
-        <Form question={mockQuestions[currentQuestionIndex]} formik={formik} />
+        <Form question={questions[currentQuestionIndex]} formik={formik} />
         <DirectionButtonsContainer>
           <Button
             variant="contained"
@@ -77,7 +87,7 @@ const ADFormComponent = () => {
           >
             Précédent
           </Button>
-          {currentQuestionIndex < mockQuestions.length - 1 ? (
+          {currentQuestionIndex < questions.length - 1 ? (
             <Button variant="contained" onClick={goToNextQuestion}>
               Suivant
             </Button>
