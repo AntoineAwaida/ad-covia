@@ -3,7 +3,8 @@ import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { isAPIOnline } from "../../lib/api";
-import { useLanding } from "./useLanding";
+import { useLanding, ApiStatus } from "./useLanding";
+import { CircularProgress } from "@material-ui/core";
 
 const Container = styled.div`
   display: flex;
@@ -20,29 +21,42 @@ const WelcomeText = styled.h3`
   text-align: center;
 `;
 
-const ButtonContainer = styled.div`
+const BottomContentContainer = styled.div`
   display: flex;
   flex: 1;
   align-items: center;
   justify-content: center;
 `;
 
-export const Landing = () => {
-  const { apiOnline } = useLanding();
-
-  return (
-    <Container>
-      <WelcomeText>Site en construction</WelcomeText>
-      <WelcomeText>
-        {"API Status : " + (apiOnline ? "ONLINE" : "OFFLINE")}
-      </WelcomeText>
-      <ButtonContainer>
+const generateBottomContent = (apiStatus: ApiStatus) => {
+  switch (apiStatus) {
+    case "ONLINE":
+      return (
         <Link to="/form">
           <Button variant="contained" color="primary">
             Aller au formulaire
           </Button>
         </Link>
-      </ButtonContainer>
+      );
+
+    case "PENDING":
+      return <CircularProgress />;
+
+    case "OFFLINE":
+      return "Notre outil est actuellement innaccessible, nous vous prions de revenir plus tard";
+  }
+};
+
+export const Landing = () => {
+  const { apiStatus } = useLanding();
+
+  return (
+    <Container>
+      <WelcomeText>Site en construction</WelcomeText>
+      <WelcomeText>{"API Status : " + apiStatus}</WelcomeText>
+      <BottomContentContainer>
+        {generateBottomContent(apiStatus)}
+      </BottomContentContainer>
     </Container>
   );
 };
