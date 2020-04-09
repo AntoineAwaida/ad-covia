@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import { isAPIOnline } from "../../lib/api";
+import { useLanding } from "./useLanding";
 
 const Container = styled.div`
   display: flex;
@@ -25,15 +27,22 @@ const ButtonContainer = styled.div`
   justify-content: center;
 `;
 
-export const Landing = () => (
-  <Container>
-    <WelcomeText>Site en construction</WelcomeText>
-    <ButtonContainer>
-      <Link to="/form">
-        <Button variant="contained" color="primary">
-          Aller au formulaire
-        </Button>
-      </Link>
-    </ButtonContainer>
-  </Container>
-);
+export const Landing = () => {
+  const { apiOnline } = useLanding();
+
+  return (
+    <Container>
+      <WelcomeText>Site en construction</WelcomeText>
+      <WelcomeText>
+        {"API Status : " + (apiOnline ? "ONLINE" : "OFFLINE")}
+      </WelcomeText>
+      <ButtonContainer>
+        <Link to="/form">
+          <Button variant="contained" color="primary">
+            Aller au formulaire
+          </Button>
+        </Link>
+      </ButtonContainer>
+    </Container>
+  );
+};
