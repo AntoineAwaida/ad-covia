@@ -17,7 +17,7 @@ const MainContainer = styled.div`
 const QuestionListContainer = styled.div`
   flex: 1;
   align-items: center;
-  border: 2px solid white;
+  border: 2px solid;
   border-radius: 20px;
   margin-right: 15px;
   padding-right: 10px;
@@ -25,17 +25,16 @@ const QuestionListContainer = styled.div`
 `;
 
 const ListTitle = styled.h3`
-  color: white;
   text-align: center;
   padding-bottom: 10px;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid;
 `;
 
 const FormContainer = styled.div`
   flex: 3;
   display: flex;
   flex-direction: column;
-  border: 2px solid white;
+  border: 2px solid;
   border-radius: 15px;
   padding-right: 10px;
   padding-left: 10px;

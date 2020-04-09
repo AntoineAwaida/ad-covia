@@ -13,7 +13,6 @@ const Container = styled.div`
 
 const HashText = styled.p`
   text-align: center;
-  color: white;
 `;
 
 interface Props {

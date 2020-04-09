@@ -11,7 +11,7 @@ const Container = styled.span`
 `;
 
 const Text = styled.h5<{ active: boolean }>`
-  color: ${(props) => (props.active ? "white" : "lightgray")};
+  color: ${(props) => (props.active ? "black" : "gray")};
 `;
 
 interface Props {

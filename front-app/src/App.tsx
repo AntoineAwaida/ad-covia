@@ -9,17 +9,22 @@ const Container = styled.div`
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: #282c34;
+  background-color: #fad39080;
 `;
 
 const HeaderContainer = styled.header`
   align-items: center;
   justify-content: center;
+  background-color: #1e3799;
 `;
 
 const Title = styled.h1`
   text-align: center;
+`;
+
+const StyledLink = styled(Link)`
   color: white;
+  text-decoration: none;
 `;
 
 const App = () => {
@@ -29,7 +34,7 @@ const App = () => {
     <Container>
       <HeaderContainer>
         <Title>
-          <Link to="/">{"AD COVIA"}</Link>
+          <StyledLink to="/">{"AD COVIA"}</StyledLink>
         </Title>
       </HeaderContainer>
       <Switch>

@@ -13,14 +13,12 @@ const Container = styled.div`
 `;
 
 const QuestionTitle = styled.h3`
-  color: white;
   text-align: center;
   padding-bottom: 10px;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid;
 `;
 
 const QuestionText = styled.h4`
-  color: white;
   text-align: center;
   padding-bottom: 10px;
 `;
