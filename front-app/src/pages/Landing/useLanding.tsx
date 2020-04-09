@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { isAPIOnline } from "../../lib/api";
+import { useSelector } from "react-redux";
+import { questionsSelector } from "../../store/selectors";
 
 export type ApiStatus = "ONLINE" | "OFFLINE" | "PENDING";
 
@@ -15,5 +17,7 @@ export const useLanding = () => {
       });
   }, []);
 
-  return { apiStatus };
+  const questions = useSelector(questionsSelector);
+
+  return { apiStatus, questions };
 };

@@ -48,7 +48,7 @@ const generateBottomContent = (apiStatus: ApiStatus) => {
 };
 
 export const Landing = () => {
-  const { apiStatus } = useLanding();
+  const { apiStatus, questions } = useLanding();
 
   return (
     <Container>
