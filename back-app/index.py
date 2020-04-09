@@ -1,11 +1,14 @@
 import csv
 import io
 
-from flask import Flask, request
+from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 
 from database import add_form, db_session, get_files_with_filename, init_db
 
+
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 def init():
@@ -35,9 +38,10 @@ def read_csv():
     return "Ok!"
 
 
-@app.route("/hello", methods=["GET"])
-def hello_world():
-    return "Hello world"
+@app.route("/", methods=["GET"])
+def status():
+    response = jsonify({"status": True})
+    return response
 
 
 if __name__ == "__main__":
