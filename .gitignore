@@ -1,10 +1,6 @@
-__pycache__
-venv
 .vscode
 resources/
-*.pyc
 .DS_Store
-.mypy_cache
-*.egg-info
-
-db.py
+venv
+**/.mypy_cache
+*.db

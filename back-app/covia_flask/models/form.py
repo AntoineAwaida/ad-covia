@@ -1,10 +1,12 @@
+from typing import Dict
+
 from sqlalchemy import Boolean, Column, Integer, String
 
-from database import Base
+from covia_flask.models import Base
 
 
 class Form(Base):
-    __tablename__ = "form"
+    __tablename__ = "forms"
     id = Column(Integer, primary_key=True)
     id_document = Column(Integer, unique=True, nullable=True)
     id_personne = Column(Integer, unique=True, nullable=True)
@@ -49,7 +51,7 @@ class Form(Base):
     positif_covid = Column(Boolean)
     filename = Column(String(120))
 
-    def __init__(self, form=None, filename=None):
+    def __init__(self, form: Dict[str, str], filename: str):
         self.male = True if form["male"] == "1" else False
         self.age = form["age"]
         self.profession = form["profession"]

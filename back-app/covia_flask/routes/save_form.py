@@ -1,26 +1,26 @@
 import csv
 import io
 
-from flask import Flask, request
+from flask import request
 
-from database import add_form, db_session, get_files_with_filename, init_db
-
-app = Flask(__name__)
-
-
-def init():
-    init_db()
+from covia_flask import app
+from covia_flask.database import db_session
+from covia_flask.models.form import Form
 
 
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    db_session.remove()
+def get_files_with_filename(filename: str) -> bool:
+    result = Form.query.filter(Form.filename == filename).first()
+    return False if result is None else True
+
+
+def add_form(form, filename):
+    f = Form(form, filename)
+    db_session.add(f)
+    db_session.commit()
 
 
 @app.route("/", methods=["POST"])
 def read_csv():
-    init()
-
     file = request.files["files"]
 
     if get_files_with_filename(file.filename):
@@ -38,7 +38,3 @@ def read_csv():
 @app.route("/hello", methods=["GET"])
 def hello_world():
     return "Hello world"
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3000, debug=True, threaded=True)
