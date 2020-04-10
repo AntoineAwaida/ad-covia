@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import create_database, database_exists
 
-import covia_flask.models.form
+import covia_flask.models.form  # noqa: F401
 from covia_flask.config import DB_URI
 from covia_flask.models import Base
 
