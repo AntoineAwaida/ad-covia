@@ -10,9 +10,9 @@ const Container = styled.div`
   flex: 1;
   flex-direction: column;
   align-items: center;
-  margin: 50px;
-  border: 2px solid black;
-  border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: white;
 `;
 
 const WelcomeText = styled.h3`
@@ -23,18 +23,26 @@ const BottomContentContainer = styled.div`
   display: flex;
   flex: 1;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  flex-direction: column;
 `;
 
 const generateBottomContent = (apiStatus: ApiStatus) => {
   switch (apiStatus) {
     case "ONLINE":
       return (
-        <Link to="/form">
-          <Button variant="contained" color="primary">
-            Aller au formulaire
-          </Button>
-        </Link>
+        <>
+          <Link to="/form">
+            <Button variant="contained" color="primary">
+              Formulaire Patient
+            </Button>
+          </Link>
+          <Link to="/form_doctor">
+            <Button variant="contained" color="primary">
+              Formulaire Médecin
+            </Button>
+          </Link>
+        </>
       );
 
     case "PENDING":

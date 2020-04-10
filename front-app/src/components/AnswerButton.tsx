@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { Button, Checkbox } from "@material-ui/core";
 
+const Container = styled.div`
+  margin-bottom: 10px;
+`;
+
 const StyledButton = styled(Button)`
   display: flex;
   flex-direction: row;
@@ -23,22 +27,24 @@ const ButtonTextContent = styled.p`
 interface Props {
   text: string;
   value: string;
-  id: string;
+  id?: string;
   checked: boolean;
   onClick?: any;
 }
 
 export const AnswerButton = (props: Props) => (
-  <StyledButton
-    variant="contained"
-    color="primary"
-    onClick={props.onClick}
-    id={props.id}
-    value={props.value}
-  >
-    <ButtonContentContainer>
-      <ButtonTextContent>{props.text}</ButtonTextContent>
-      <Checkbox checked={props.checked} />
-    </ButtonContentContainer>
-  </StyledButton>
+  <Container>
+    <StyledButton
+      variant="contained"
+      color="primary"
+      onClick={props.onClick}
+      id={props.id}
+      value={props.value}
+    >
+      <ButtonContentContainer>
+        <ButtonTextContent>{props.text}</ButtonTextContent>
+        <Checkbox checked={props.checked} />
+      </ButtonContentContainer>
+    </StyledButton>
+  </Container>
 );

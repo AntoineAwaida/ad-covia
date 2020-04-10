@@ -1,24 +1,23 @@
 import React, { memo } from "react";
 import styled from "styled-components";
 import { QuestionList } from "./components/QuestionList";
-import { mockQuestions } from "../../modules/questions/mocks";
 import { useADForm } from "./useADForm";
 import { Form } from "./components/Form";
 import { Button } from "@material-ui/core";
-import { Question } from "../../modules/questions/interfaces";
 
 const MainContainer = styled.div`
+  height: 550px;
   display: flex;
   flex: 1;
   flex-direction: row;
-  margin: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: white;
 `;
 
 const QuestionListContainer = styled.div`
   flex: 1;
   align-items: center;
-  border: 2px solid;
-  border-radius: 20px;
   margin-right: 15px;
   padding-right: 10px;
   padding-left: 10px;
@@ -30,13 +29,19 @@ const ListTitle = styled.h3`
   border-bottom: 2px solid;
 `;
 
+const Divider = styled.div`
+  width: 0.5px;
+  height: 450px;
+  align-self: center;
+  background-color: black;
+`;
+
 const FormContainer = styled.div`
   flex: 3;
   display: flex;
   flex-direction: column;
-  border: 2px solid;
-  border-radius: 15px;
   padding-right: 10px;
+  margin-left: 15px;
   padding-left: 10px;
   padding-bottom: 10px;
 `;
