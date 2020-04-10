@@ -56,7 +56,7 @@ questionsJSON = [
     {
         "id": "userHashKeyId",
         "shortText": "Identification",
-        "text": "Nous allons générer un identifiant chiffré pour enregistrer votre résultat. Pour le générer, nous avons besoin de votre nom, prénom et âge. Rassurez-vous, nous ne les enregistrons pas",
+        "text": "Nous allons générer un identifiant chiffré pour enregistrer votre résultat. Pour le générer, nous avons besoin de votre nom, prénom et âge.",
         "answer": {"type": "USER_HASK_KEY"},
     },
 ]
