@@ -94,4 +94,4 @@ class Form(Base):
         self.filename = filename
 
     def __repr__(self):
-        return "<Form %r>" % (self.id_document)
+        return f"<Form {self.id_document}>"
