@@ -1,11 +1,17 @@
 import csv
 import io
 
-from flask import request
+from flask import Blueprint, request
 
-from covia_flask import app
 from covia_flask.database import db_session
 from covia_flask.models.form import Form
+
+forms = Blueprint("forms", __name__)
+
+
+@forms.route("/hello", methods=["GET"])
+def hello_world():
+    return "Hello world"
 
 
 def get_files_with_filename(filename: str) -> bool:
@@ -19,7 +25,7 @@ def add_form(form, filename):
     db_session.commit()
 
 
-@app.route("/", methods=["POST"])
+@forms.route("/", methods=["POST"])
 def read_csv():
     file = request.files["files"]
 
@@ -33,8 +39,3 @@ def read_csv():
         form = dict(row)
         add_form(form, file.filename)
     return "Ok!"
-
-
-@app.route("/hello", methods=["GET"])
-def hello_world():
-    return "Hello world"
