@@ -1,2 +1,2 @@
-export FLASK_APP="covia_flask/runserver.py"
+export FLASK_APP="covia_flask"
 flask run
